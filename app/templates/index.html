@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ super() }}
+Papeleria
+{% endblock%}
+{% block content %}
+<div class="container">
+    <section>
+        <div class="row">
+            <h2 style="font-size: 5vw;" class="text-center">Ventas</h2>
+        </div>
+    </section>
+    <section>
+        <div class="container" style="margin-bottom:100px">
+            <div id="mCarousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                    <li data-target="#mCarousel" data-slide-to="0"></li>
+                    <li data-target="#mCarousel" data-slide-to="1" class="active"></li>
+                    <li data-target="#mCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item">
+                        <img class="w-100 h-50"
+                            src="https://res.cloudinary.com/dvqgk49zn/image/upload/v1691549728/papersaltos/carousel/carousel3_mjiobx.jpg"
+                            style="width:100%;height:800px;">
+                    </div>
+                    <div class="item active">
+                        <img class="w-100 h-50"
+                            src="https://res.cloudinary.com/dvqgk49zn/image/upload/v1691549721/papersaltos/carousel/caousel2_tsnriy.jpg"
+                            style="width:100%;height:800px;">
+                    </div>
+                    <div class="item">
+                        <img class="w-100 h-50"
+                            src="https://res.cloudinary.com/dvqgk49zn/image/upload/v1691549716/papersaltos/carousel/carousel1_iprowz.jpg"
+                            style="width:100%;height:800px;">
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#mCarousel" data-slide="prev">
+                    <span class="fa fa-chevron-left fa-lg" style="margin-top:400px"></span>
+                </a>
+                <a class="right carousel-control" href="#mCarousel" data-slide="next">
+                    <span class="fa fa-chevron-right fa-lg" style="margin-top:400px"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="display-1"><b>Papeleria</b></h2>
+                <p class="display-5">Es el conjunto de productos realacionados con el papel y la escitura. Incluye una gran variedad de
+                    artículos como cuadernos, bolígrafos, lápices, sobres, tarjetas pegantes, materiales de arte y
+                    arquitectura, entre otros. </p>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img class="w-75" src="https://res.cloudinary.com/dvqgk49zn/image/upload/v1691549716/papersaltos/carousel/carousel1_iprowz.jpg" alt="">
+                    <caption></caption>
+                </figure>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
