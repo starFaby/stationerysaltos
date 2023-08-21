@@ -173,6 +173,7 @@ class Producto(db.Model):
     __tablename__='pfsproductos'
 
     pfsprodid = db.Column(db.Integer, primary_key=True)
+    pfsprodmarca = db.Column(db.String(30), nullable=False)
     pfsprodnombre = db.Column(db.String(80), nullable=False)
     pfsprodimage = db.Column(db.String(300), nullable=False)
     pfsproddetalle = db.Column(db.String(300), nullable=False)
@@ -185,7 +186,8 @@ class Producto(db.Model):
     pfscategoria = db.relationship('Categoria',backref=db.backref('pfsproductos',lazy=True))
 
 
-    def __init__(self, pfsprodnombre, pfsprodimage, pfsproddetalle, pfsprodprecio, pfsprodstock, pfsprodestado, pfsprodcreatedat, pfscategoriaid):
+    def __init__(self, pfsprodmarca, pfsprodnombre, pfsprodimage, pfsproddetalle, pfsprodprecio, pfsprodstock, pfsprodestado, pfsprodcreatedat, pfscategoriaid):
+        self.pfsprodmarca = pfsprodmarca
         self.pfsprodnombre = pfsprodnombre
         self.pfsprodimage = pfsprodimage
         self.pfsproddetalle = pfsproddetalle
@@ -196,7 +198,7 @@ class Producto(db.Model):
         self.pfscategoriaid = pfscategoriaid
 class ProductoSchema(ma.Schema):
     class Meta:
-        fields = ('pfsprodid', 'pfsprodnombre', 'pfsprodimage', 'pfsproddetalle', 'pfsprodprecio', 'pfsprodstock', 'pfsprodestado', 'pfsprodcreatedat', 'pfscategoriaid')
+        fields = ('pfsprodid', 'pfsprodmarca', 'pfsprodnombre', 'pfsprodimage', 'pfsproddetalle', 'pfsprodprecio', 'pfsprodstock', 'pfsprodestado', 'pfsprodcreatedat', 'pfscategoriaid')
 
 productoSchema = ProductoSchema()
 productoSchema = ProductoSchema(many=True)

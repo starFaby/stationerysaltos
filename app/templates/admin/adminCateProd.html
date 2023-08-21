@@ -10,6 +10,11 @@ Index
         <div class="col-md-4" style="padding: 25px ;">
             <form action="/newcp" method="post">
                 <div class="form-group">
+                    <label for="txtMarca">Marca</label>
+                    <input type="text" class="form-control" id="txtMarca" name="txtMarca" aria-describedby="emailHelp"
+                        placeholder="Marca...">
+                </div>
+                <div class="form-group">
                     <label for="txtNombre">Nombre</label>
                     <input type="text" class="form-control" id="txtNombre" name="txtNombre" aria-describedby="emailHelp"
                         placeholder="Nombre...">
@@ -75,6 +80,7 @@ Index
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Marca</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Image</th>
                         <th scope="col">Detalle</th>
@@ -89,6 +95,7 @@ Index
                     {% for item in cateProd.items %}
                     <tr>
                         <th scope="row">{{item.pfsprodid}}</th>
+                        <td>{{item.pfsprodmarca}}</td>
                         <td>{{item.pfsprodnombre}}</td>
                         <td><img style="width: 50px ; height: 50px ;" src="{{item.pfsprodimage}}" alt=""></td>
                         <td>{{item.pfsproddetalle}}</td>

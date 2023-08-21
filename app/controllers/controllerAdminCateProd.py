@@ -31,6 +31,7 @@ class ControllerAdminCateProd:
 
     def onGetControllerAdminCateProdSave():
         try:
+            pfsprodmarca = request.form['txtMarca']
             pfsabprodnombre = request.form['txtNombre']
             pfsabprodimage = request.form['txtImage']
             pfsabproddetalle = request.form['txtDetalle']
@@ -40,8 +41,8 @@ class ControllerAdminCateProd:
             pfsabprodcreatedat = datetime.now()
             categoriaid = request.form['selectCategoria']
 
-            if pfsabprodnombre != '' and pfsabprodimage != '' and pfsabproddetalle != ''and pfsabprodprecio != ''and pfsabprodstock != '' and pfsabprodestado != 'Elija...' and categoriaid != 'Elija...':
-                newcateprod = Producto(pfsabprodnombre, pfsabprodimage, pfsabproddetalle,pfsabprodprecio, pfsabprodstock, pfsabprodestado, pfsabprodcreatedat, categoriaid)
+            if pfsprodmarca!=''and pfsabprodnombre != '' and pfsabprodimage != '' and pfsabproddetalle != ''and pfsabprodprecio != ''and pfsabprodstock != '' and pfsabprodestado != 'Elija...' and categoriaid != 'Elija...':
+                newcateprod = Producto(pfsprodmarca, pfsabprodnombre, pfsabprodimage, pfsabproddetalle,pfsabprodprecio, pfsabprodstock, pfsabprodestado, pfsabprodcreatedat, categoriaid)
                 db.session.add(newcateprod)
                 db.session.commit()
                 flash('Guardado Correctamente', category='success')
@@ -59,6 +60,7 @@ class ControllerAdminCateProd:
             productos = Producto.query.get(id)
             categorias = Categoria.query.all()
             if request.method == 'POST':
+                productos.pfsprodmarca = request.form['txtMarca']
                 productos.pfsprodnombre = request.form['txtNombre']
                 productos.pfsprodimage = request.form['txtImage']
                 productos.pfsproddetalle = request.form['txtDetalle']
@@ -67,7 +69,7 @@ class ControllerAdminCateProd:
                 productos.pfsprodestado = request.form['selectEstado']
                 productos.pfsabprodcreatedat = datetime.now()
                 productos.pfscategoriaid = request.form['selectCategoria']
-                if productos.pfsprodnombre != '' and productos.pfsprodimage != '' and productos.pfsproddetalle != '' and productos.pfsprodprecio != '' and productos.pfsprodstock != '' and productos.pfsprodestado != 'Elija...' and productos.pfsabprodcreatedat != '' and productos.pfscategoriaid != 'Elija...':
+                if productos.pfsprodmarca != '' and productos.pfsprodnombre != '' and productos.pfsprodimage != '' and productos.pfsproddetalle != '' and productos.pfsprodprecio != '' and productos.pfsprodstock != '' and productos.pfsprodestado != 'Elija...' and productos.pfsabprodcreatedat != '' and productos.pfscategoriaid != 'Elija...':
                     db.session.commit()
                     flash('Datos Actualizados', category='success')
                     return redirect(url_for('adcapr.controllerAdminCateProdList'))
